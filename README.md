@@ -1,145 +1,152 @@
-# Play Store Data Analysis | Power BI
+# Play Store App Review Analysis Dashboard
 
-Explore app categories, installation volume, ratings and review activity through a five-page Power BI report.
+### Explore app performance, category popularity and user ratings with Power BI.
+
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Power Query](https://img.shields.io/badge/Power_Query-Data_Preparation-217346)
+![DAX](https://img.shields.io/badge/DAX-Analytics-753AA6)
+![Data Modeling](https://img.shields.io/badge/Data_Modeling-Relationships-326CE5)
 
 **Author:** Swapnil Sudhakar Pathare  
-**Tool:** Microsoft Power BI Desktop  
-**Project file:** `4 project (1).pbix`
+**Data source:** AlmaBetter course materials  
+**Project type:** Business Intelligence / Data Analytics
 
-[Read the project report](docs/Play_Store_Data_Analysis.pdf)
+[View Project Report](Play_Store_Data_Analysis.pdf) · [Download Power BI File](Playstore-App-Review-Analysis-Dashboard.pbix)
 
-![Data overview](Playstore_app_review_analysis_images/1. Count_app_by_category.png)
+## Project Overview
 
-## Project overview
+This project explores Play Store app data through a five-page Power BI dashboard. It compares app categories, installations, ratings, review activity and app cost to make the dataset easier to understand visually.
 
-This project presents a visual analysis of a Play Store dataset. It brings together headline metrics, category comparisons, top-app installation shares, rating distributions and review-volume comparisons in a consistent dashboard layout.
+Viewers can start with the headline metrics, compare categories, explore popular apps and examine how ratings relate to review volume. The project demonstrates dashboard design, KPI presentation and visual analysis for a data analytics portfolio.
 
-The documentation is based on five supplied dashboard screenshots and the supplied Power BI application view. Dataset preparation steps, DAX formulas and raw-data calculations have not been independently verified.
+![Play Store dashboard overview](<Playstore_app_review_analysis_images/1. Count_app_by_category.png>)
 
-## Questions explored
+## Tech Stack
 
-- Which categories contain the most app records?
-- Which categories account for the highest installation volume?
-- How are installations distributed among the displayed top 15 apps?
-- How are ratings distributed, including missing ratings?
-- How do category cost and review contributions compare?
-- Where do apps sit when rating is compared with review volume?
+| Technology | Role in the project |
+| --- | --- |
+| **Power BI Desktop** | Build and explore the multi-page dashboard |
+| **Power Query** | Data preparation layer for importing and transforming source data |
+| **DAX** | Measures referenced in the report, including Total Installs, Total Reviews, No Of Apps and Avg Review |
+| **Data Modeling** | Organize app and user-review tables and their relationships |
+| **File formats** | `.pbix` for the Power BI project, `.pdf` for the report, `.png` for dashboard previews and `.md` for documentation |
 
-## Dashboard KPIs
+The archive contains the report project and presentation assets. Original source datasets and their file formats are not included; detailed Power Query steps and DAX formulas are not documented here.
 
-| Displayed metric | Displayed value | Interpretation |
-| --- | ---: | --- |
-| Total Installs | 168bn | Rounded dashboard aggregate; not unique users |
-| Total Reviews | 5bn | Rounded dashboard aggregate |
-| Total Apps | 9,639 | Card value; uniqueness/counting logic unverified |
-| Avg Review | 444.15K | Card value; formula and denominator unverified |
+## Data Source
 
-These values describe the report as captured. They are not live Google Play totals. Do not recompute one card from another without checking the underlying measures, filters and rounding.
+The dataset was provided through my **AlmaBetter course** and used for this learning and portfolio project.
 
-## Dashboard walkthrough
+The project model includes two tables:
 
-### 1. Data overview
+| Table | Purpose |
+| --- | --- |
+| **Play Store Data** | App information used to analyze categories, installs, ratings, reviews and app cost |
+| **User Reviews** | User-review information associated with apps |
 
-Compares app counts by category using a horizontal bar chart and an area chart.
+**Acknowledgment:** Thanks to AlmaBetter for the course learning resources and dataset. The original datasets may be needed to refresh the report. Course attribution does not establish permission to redistribute the underlying data.
 
-| Category | Displayed app count |
+## Features and Highlights
+
+- **KPI overview:** Summarizes installations, reviews, app count and the displayed average-review metric.
+- **Category comparison:** Shows how app counts and installation volume differ across categories.
+- **Top-app analysis:** Presents installation shares for the displayed top 15 apps.
+- **Rating distribution:** Groups apps by rating to help viewers explore the dataset's rating profile.
+- **Treemap comparisons:** Shows relative category contributions to app cost and total reviews.
+- **Rating-versus-reviews analysis:** Uses a scatter plot to compare app ratings with review volume.
+- **Consistent visual layout:** Uses purple styling, repeated KPI cards and navigation labels across report pages.
+- **Accessible project previews:** Includes screenshots and a PDF so viewers can review the work without opening Power BI.
+
+## Dashboard at a Glance
+
+| KPI | Value displayed |
 | --- | ---: |
-| FAMILY | 1,972 |
-| GAME | 1,144 |
-| TOOLS | 843 |
-| MEDICAL | 463 |
-| BUSINESS | 460 |
+| Total Installs | **168bn** |
+| Total Reviews | **5bn** |
+| Total Apps | **9,639** |
+| Avg Review | **444.15K** |
 
-FAMILY has the largest displayed app count. This reflects dataset coverage, not proof of the most profitable category. The area chart compares categories; it is not a time series.
+`bn` means billion; `K` means thousand. These are the rounded values displayed in the dashboard, not live Google Play market totals. Check the underlying measures and filters before using them for further calculations.
 
-### 2. Category installs and ratings
+## Dashboard Pages
 
-![Category installs](screenshots/02-category-installs.png)
+### 1. App Count by Category
 
-- GAME leads the installs chart at **35.1bn**.
-- COMMUNICATION follows at **32.6bn**.
-- TOOLS shows **11.5bn** and PHOTOGRAPHY **10.1bn**.
-- A combination chart compares category-level average ratings and total installs.
+Compare the number of apps across categories using a bar chart and an area chart.
 
-**Display limitation:** the rating axis is formatted in billions, and a category labeled `1.9` is visible. Check number formatting and category values before interpreting that chart.
+**Highlight:** FAMILY has the highest displayed app count at **1,972**, followed by GAME at **1,144** and TOOLS at **843**.
 
-### 3. Top apps and rating distribution
+### 2. Category Installs and Average Ratings
 
-![Top apps and ratings](screenshots/03-apps-and-ratings.png)
+Compare the top 10 categories by installations and explore the category-level rating/install comparison.
 
-The pie chart presents installations for 15 apps, including Subway Surfers, Google Drive, Instagram and WhatsApp. The largest visible slice is labeled **6bn (11.32%)**. Its percentages refer to the displayed subset, not all dataset installations.
+**Highlight:** GAME leads the displayed installation chart at **35.1bn**, followed by COMMUNICATION at **32.6bn**.
 
-The donut chart groups apps by rating. A **NaN group (15.11%)** is visible and should be treated as missing/invalid pending data validation. Several count labels round to `0K`; exact whole-number labels would make the chart clearer.
+![Category installs and ratings](<Playstore_app_review_analysis_images/2. Avg_rating_and_total_install_by_category.png>)
 
-### 4. Category cost and review composition
+### 3. Top Apps and Rating Distribution
 
-![Cost and reviews](screenshots/04-cost-and-reviews.png)
+Explore installation shares for 15 apps and see how apps are distributed across rating groups.
 
-- FINANCE, FAMILY and LIFESTYLE occupy large areas in the Total App Cost treemap.
-- GAME has the largest visible area in the Total Reviews treemap; COMMUNICATION and SOCIAL are also prominent.
+**Highlight:** Featured apps include Subway Surfers, Google Drive, Instagram and WhatsApp. Installation-share percentages refer to the displayed top-app subset.
 
-The screenshot does not expose exact treemap values. Total App Cost should not be described as revenue: its currency, aggregation and outlier treatment need confirmation. The lower chart is partially cropped in the supplied image.
+![Top apps and rating distribution](<Playstore_app_review_analysis_images/3. No_of_apps_by_rating.png>)
 
-### 5. Ratings versus reviews
+### 4. App Cost and Reviews by Category
 
-![Ratings and reviews](screenshots/05-ratings-and-reviews.png)
+Use treemaps to compare category contributions to Total App Cost and Total Reviews.
 
-The scatter plot compares average rating with total reviews. High-review observations cluster around ratings of approximately **4.0-4.6**, while many observations have low review totals across the rating range.
+**Highlight:** FINANCE, FAMILY and LIFESTYLE occupy large areas in the cost treemap. GAME has the largest visible area in the reviews treemap.
 
-This visual alone does not prove correlation or causation. Despite the navigation label “Rating & Review Trends,” the supplied visuals do not show a time axis and cannot establish temporal growth. The screenshots also do not establish sentiment-analysis results.
+![App cost and reviews by category](<Playstore_app_review_analysis_images/4. Total_app_cost_and_reviews_by_category.png>)
 
-## Observed data model
+### 5. Average Rating vs. Total Reviews
 
-| Table | Visible column count | Role indicated by its name |
-| --- | ---: | --- |
-| Play Store Data | 22 | App-related data |
-| User Reviews | 5 | Review-related data |
+Compare app ratings with review volume using a scatter plot.
 
-The supplied application view shows a **limited many-to-many relationship** between these tables. Its join key and filter direction have not been verified. Validate uniqueness and filter behavior before interpreting combined measures; consider a unique app dimension if supported by the source data.
+**Highlight:** High-review observations appear mainly around ratings of **4.0–4.6**. This is a visual observation and does not establish causation.
 
-## Repository contents
+![Average rating versus total reviews](<Playstore_app_review_analysis_images/5. Avg_rating_and_total_reviews_by_app_and_rating.png>)
 
-```text
-.
-├── README.md
-├── 4 project (1).pbix          # Add the original supplied project file
-├── docs/
-│   └── Play_Store_Data_Analysis.pdf
-└── screenshots/
-    ├── 01-overview.png
-    ├── 02-category-installs.png
-    ├── 03-apps-and-ratings.png
-    ├── 04-cost-and-reviews.png
-    └── 05-ratings-and-reviews.png
-```
+## Example: How a Viewer Can Use This Dashboard
 
-The documentation bundle contains the PDF, README and screenshots. Add your original PBIX alongside README.md; the PBIX is not included in this bundle.
+**Question: “Which category has more apps, and which attracts more installations?”**
 
-## How to open
+1. Open the overview page and compare app counts: FAMILY leads with **1,972** apps.
+2. Move to the category-installation view: GAME leads with **35.1bn** displayed installs.
+3. Compare the two findings: the category with the most app records is different from the category with the most installation volume.
+4. Explore ratings and reviews for additional context before drawing a business conclusion.
 
-1. Download or clone this repository.
-2. Open `4 project (1).pbix` in Power BI Desktop.
-3. Explore the five report pages and inspect the active filters.
-4. If refreshing, provide the original source datasets and update paths through **File → Options and settings → Data source settings** as needed.
-5. Inspect relationships and measure definitions before trusting refreshed totals.
+This example shows how the dashboard separates **app availability** from **installation activity**. Neither metric alone establishes profitability.
 
-A PDF or screenshot provides a static preview. Use the PBIX in Power BI Desktop for report interactions. Original source datasets may be required for refresh.
+## Project Files
 
-## Quality checks and improvements
+| File / folder | Contents |
+| --- | --- |
+| `Playstore-App-Review-Analysis-Dashboard.pbix` | Power BI report project |
+| `Play_Store_Data_Analysis.pdf` | Project report and dashboard walkthrough |
+| `Playstore_app_review_analysis_images/` | Five dashboard screenshots in report order |
+| `README.md` | Project overview, features and usage instructions |
 
-- Verify app uniqueness, repeated app records and the definitions of the four KPI cards.
-- Confirm numeric conversion of installs, reviews, ratings and prices; document any cleaning actually performed.
-- Handle missing ratings explicitly instead of leaving `NaN` in the legend.
-- Correct rating-axis display units and investigate category values such as `1.9`.
-- Test the many-to-many relationship for unexpected filtering or aggregation.
-- Replace crowded pie/donut labels with readable counts, tooltips or ranked bars.
-- Standardize labels such as “Total Reviews” and “User Feedback.”
-- Document dataset provenance, collection period, currency and permitted reuse.
+## How to Open the Project
 
-These are recommended next steps, not claims that these changes are already implemented.
+1. Download or clone this repository and extract it if downloaded as a ZIP.
+2. Open **`Playstore-App-Review-Analysis-Dashboard.pbix`** in Power BI Desktop.
+3. Explore the five report pages using the page tabs.
+4. For a quick static preview, open the PDF or the screenshots in this README.
+5. To refresh the data, obtain the original course datasets and update the source paths in **Data source settings** as needed.
 
-## Scope and attribution
+## Interpretation Notes
 
-Evidence: five user-supplied dashboard screenshots, arranged in report order, and the supplied Power BI application description. Screenshots are preserved as supplied. Raw datasets and DAX definitions were not audited; this report should be read as a portfolio demonstration rather than a current market assessment.
+- The rating distribution includes a `NaN` group, indicating missing or invalid ratings that need review.
+- The category comparison chart displays rating units in billions; correct that formatting before interpreting its rating values.
+- App cost is not revenue, and installation totals are not unique users.
+- The supplied rating/review visuals compare records rather than change over time. No sentiment-analysis result is claimed here.
 
-Dataset source and license were not provided in the reviewed material. Add the verified original source and its license before redistributing underlying data. No software or dataset license is asserted by this README.
+## Skills Demonstrated
+
+**Power BI dashboard design · KPI communication · Category comparisons · Data visualization · App performance analysis · Analytical storytelling**
+
+---
+
+Created by **Swapnil Sudhakar Pathare** using a dataset provided through the **AlmaBetter course**.
