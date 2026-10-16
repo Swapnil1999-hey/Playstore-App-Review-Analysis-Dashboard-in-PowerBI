@@ -8,7 +8,7 @@ Explore app categories, installation volume, ratings and review activity through
 
 [Read the project report](docs/Play_Store_Data_Analysis.pdf)
 
-![Data overview](screenshots/01-overview.png)
+![Data overview](Playstore_app_review_analysis_images/1. Count_app_by_category.png)
 
 ## Project overview
 
